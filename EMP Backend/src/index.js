@@ -4,18 +4,23 @@ import { router } from './Router/userRouter.js'
 import cors from 'cors'
 import { taskrouter } from './Router/taskRouter.js'
 import dotenv from 'dotenv'
-dotenv.config()
+// const dotenv = require('dotenv')
+dotenv.config({path:'./.env'})
 const app = express()
 
-const mongoURI = process.env.MONGO_URI;
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+try{
+    const mongoURI = process.env.MONGO_URI;
+    mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB Connected...'))
+    .catch((err) => console.log('Error connecting to Mongo:', err))
+}catch(e){
+    console.log("Error connecting to MongoDB",e)
+}
 
 
-const PORT = process.env.PORT || 3000;
 
-const db = mongoose.connection;
-db.on('error',(e)=>console.log(e))
-db.once('open',()=>console.log('Database Connected'))
+const PORT = process.env.PORT || 3008;
+
 
 app.use(cors())
 app.use(express.json())

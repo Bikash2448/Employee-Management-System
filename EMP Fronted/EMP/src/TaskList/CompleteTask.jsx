@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CompleteTask = () => {
+const CompleteTask = ({task}) => {
   return (
     <div className='flex-shrink-0 h-full w-[300px] min-h-[300px] bg-green-400 m-4 p-4 rounded-xl'>
         <div className='text-white flex justify-between px-2 pt-4'>

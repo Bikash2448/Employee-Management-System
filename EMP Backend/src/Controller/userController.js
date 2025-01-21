@@ -22,6 +22,7 @@ export const getuserByid = async (req,res)=>{
 export const saveUser = async (req,res)=>{
 
     const user = new userModel(req.body);
+    
 
     try{
         const inserteuser = await user.save();

@@ -29,7 +29,7 @@ export async function addTask(req, res) {
         if (!taskDocument) {
             // Create a new task document
             taskDocument = new taskModel({
-                user: user.name,
+                user: user._id,
                 tasks: [newTask]
             });
         } else {

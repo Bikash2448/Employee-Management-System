@@ -44,8 +44,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-400 animate-fadeIn">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm transform transition-all duration-500 ease-in-out animate-slideIn">
+    <div className="flex justify-center back items-center min-h-screen animate-fadeIn">
+      <div className=" bg-transparent con p-8 rounded-lg shadow-lg w-full max-w-sm transform transition-all duration-500 ease-in-out animate-slideIn">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
         <form onSubmit={handleLogin}>
           <div className="mb-4">

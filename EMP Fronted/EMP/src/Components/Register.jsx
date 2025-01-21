@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import '../../src/App.css'
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -38,8 +39,8 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-400">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96 animate__animated animate__fadeIn animate__delay-1s">
+    <div className="flex justify-center items-center min-h-screen back ">
+      <div className="con  bg-transparent p-8 rounded-lg shadow-lg w-full sm:w-96 animate__animated animate__fadeIn animate__delay-1s">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">Register</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

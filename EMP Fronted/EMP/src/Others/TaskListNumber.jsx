@@ -8,7 +8,7 @@ const TaskListNumber = () => {
     const { name, id } = location.state || {};
 
     const [taskCounts, setTaskCounts] = useState({
-        newTask: 2,
+        newTask: 0,
         inProgress: 0,
         completed: 0,
         uncomplete: 0,
@@ -25,7 +25,7 @@ const TaskListNumber = () => {
         };
     
         fetchTaskCounts();
-      }, []);
+      }, [id]);
     
   return (
     <div className='flex mt-10 justify-between gap-5 px-2 screen'>

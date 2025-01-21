@@ -6,7 +6,6 @@ import { getUser,getuserByid,saveUser,updateUser,deleteUser } from '../Controlle
 export const router = express.Router();
 
 router.get('/users',getUser)
-// router.get('/users',getUsers)
 router.get('/users/:id',getuserByid);
 router.post('/users',saveUser);
 router.patch('/users/:id',updateUser);

@@ -23,8 +23,10 @@ const AllTask = ({refresh}) => {
       const usersResponse = await axios('http://localhost:3000/users');
       const usersData = usersResponse.data;
 
+      const employeesOnly = usersData.filter(user => user.role === 'employee');
+
       // Fetch task data for each user and update employees' state
-      const employeesData = await Promise.all(usersData.map(async (user) => {
+      const employeesData = await Promise.all(employeesOnly.map(async (user) => {
         const taskData = await getEmployeeTaskData(user._id);
         return {
           userId: user._id,

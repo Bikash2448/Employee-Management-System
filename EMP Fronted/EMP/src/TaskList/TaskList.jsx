@@ -20,7 +20,7 @@ const TaskList = () => {
             const allTasks = response.data;
             console.log("gh",response.data)
 
-            const userTasks = allTasks.find((task) => task.user === id)?.tasks || [];
+            const userTasks = allTasks.find((task) => task.user === id)?.tasks || [];  //find task for specific user
             setTasks(userTasks);
         }catch(e){
 
@@ -29,7 +29,11 @@ const TaskList = () => {
 
     useEffect(()=>{
         getTasks()
-    },[])
+    },[id])
+
+    const handleUpdate = ()=>{
+        getTasks()
+    }
 
 
     const newTasks = tasks.filter((task) => task.status === 'newTask');
@@ -47,7 +51,7 @@ const TaskList = () => {
 
         {newTasks.length > 0 &&
         newTasks.map((task, index) => (
-          <NewTask key={index} task={task} />
+          <NewTask key={index} task={task} onUpdate={handleUpdate} />
         ))}
 
         {completedTasks.length > 0 &&
@@ -58,7 +62,7 @@ const TaskList = () => {
       
         {activeTasks.length > 0 &&
             activeTasks.map((task, index) => (
-            <AcceptTask key={index} task={task} />
+            <AcceptTask key={index} task={task} onUpdate={handleUpdate} />
             ))}
 
       
