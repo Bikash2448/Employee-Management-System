@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../Components/Header'
 import TaskList from '../TaskList/TaskList'
 import TaskListNumber from '../Others/TaskListNumber'
 
 const Emp = () => {
+  
+  const [triggerEffect, setTriggerEffect] = useState(false);
+
+  const triggerBothEffects = () => {
+    setTriggerEffect((prev) => !prev); // Toggle the state to trigger useEffect
+  };
+
   return (
-    <div className='bg-[#1c1c1c]'>
+    <div className='bg-[#1c1c1c] min-h-screen '>
         {/* <Header changeUser={props.changeUser} data={props.dataa}/> */}
         {/* <TaskListNumber data={props.dataa}/> */}
         {/* <TaskList data={props.dataa}/> */}
         <Header/>
-        <TaskListNumber/>
-        <TaskList/>
+        <TaskListNumber triggerEffect={triggerEffect} triggerBothEffects={triggerBothEffects}/>
+        <TaskList triggerEffect={triggerEffect} triggerBothEffects={triggerBothEffects}/>
     </div>
   )
 }

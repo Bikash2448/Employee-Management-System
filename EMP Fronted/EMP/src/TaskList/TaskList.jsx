@@ -7,7 +7,7 @@ import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 
 
-const TaskList = () => {
+const TaskList = ({ triggerEffect, triggerBothEffects }) => {
     const [tasks, setTasks] = useState([]);
 
     const location = useLocation();
@@ -22,6 +22,7 @@ const TaskList = () => {
 
             const userTasks = allTasks.find((task) => task.user === id)?.tasks || [];  //find task for specific user
             setTasks(userTasks);
+            triggerBothEffects()
         }catch(e){
 
         }      
@@ -29,7 +30,7 @@ const TaskList = () => {
 
     useEffect(()=>{
         getTasks()
-    },[id])
+    },[id,triggerEffect])
 
     const handleUpdate = ()=>{
         getTasks()
@@ -43,11 +44,7 @@ const TaskList = () => {
 
 
   return (
-    <div id='tasklist' className=' pr-4 mx-2 w-full mt-10 flex items-center justify-around rounded-md gap-5 flex-nowrap overflow-y-auto overflow-x-auto py-5'>
-        {/* <NewTask/>
-        <CompleteTask/>
-        <AcceptTask/>
-        <FailedTask/> */}
+    <div id='tasklist' className=' pr-4 mx-2 w-full mt-10 flex items-center justify-around rounded-md bg-[#1c1c1c] gap-5 flex-nowrap overflow-y-auto overflow-x-auto py-5'>
 
         {newTasks.length > 0 &&
         newTasks.map((task, index) => (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom';
 
-const TaskListNumber = () => {
+const TaskListNumber = ({ triggerEffect, triggerBothEffects }) => {
 
     const location = useLocation();
     const { name, id } = location.state || {};
@@ -19,13 +19,14 @@ const TaskListNumber = () => {
           try {
             const response = await axios.get(`http://localhost:3000/tasks/emp/${id}`);
             setTaskCounts(response.data);
+            triggerBothEffects()
           } catch (error) {
             console.error('Error fetching task counts:', error);
           }
         };
     
         fetchTaskCounts();
-      }, [id]);
+      }, [id,triggerEffect]);
     
   return (
     <div className='flex mt-10 justify-between gap-5 px-2 screen'>

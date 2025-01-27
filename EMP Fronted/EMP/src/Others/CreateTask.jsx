@@ -40,7 +40,7 @@ const CreateTask = ({onTaskCreated}) => {
             // navigate("/");
             onTaskCreated();
           } catch (error) {
-            console.log(error);
+            console.log("what",error);
           }
 
 
