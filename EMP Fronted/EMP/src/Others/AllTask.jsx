@@ -9,7 +9,7 @@ const AllTask = ({refresh}) => {
   // Fetch task data for a specific user by userId
   async function getEmployeeTaskData(userId) {
     try {
-      const response = await axios(`http://localhost:3000/tasks/emp/${userId}`);
+      const response = await axios(`${import.meta.env.VITE_BACKEND_URL}/tasks/emp/${userId}`);
       return response.data; // Returning the task data (newTask, inProgress, etc.)
     } catch (error) {
       console.error(`Error fetching task data for userId ${userId}:`, error);
@@ -20,7 +20,7 @@ const AllTask = ({refresh}) => {
   // Fetch all employees and their task data
   async function getEmployees() {
     try {
-      const usersResponse = await axios('http://localhost:3000/users');
+      const usersResponse = await axios(`${import.meta.env.VITE_BACKEND_URL}/users`);
       const usersData = usersResponse.data;
 
       const employeesOnly = usersData.filter(user => user.role === 'employee');

@@ -16,7 +16,7 @@ const TaskList = ({ triggerEffect, triggerBothEffects }) => {
 
     async function getTasks() {
         try{
-            const response = await axios('http://localhost:3000/tasks')
+            const response = await axios(`${import.meta.env.VITE_BACKEND_URL}/tasks`)
             const allTasks = response.data;
             console.log("gh",response.data)
 

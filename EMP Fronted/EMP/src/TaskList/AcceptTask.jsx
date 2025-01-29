@@ -7,7 +7,7 @@ const AcceptTask = ({task,onUpdate}) => {
     const updateTaskStatus = async (status) => {
         try {
           // API call to update the task's status in the database
-          const response = await axios.put(`http://localhost:3000/tasks/${task._id}`, {
+          const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/tasks/${task._id}`, {
             status, // Sending the new status as part of the request body
           });
           console.log('Task updated:', response.data);

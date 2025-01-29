@@ -17,7 +17,7 @@ const TaskListNumber = ({ triggerEffect, triggerBothEffects }) => {
       useEffect(() => {
         const fetchTaskCounts = async () => {
           try {
-            const response = await axios.get(`http://localhost:3000/tasks/emp/${id}`);
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/tasks/emp/${id}`);
             setTaskCounts(response.data);
             triggerBothEffects()
           } catch (error) {

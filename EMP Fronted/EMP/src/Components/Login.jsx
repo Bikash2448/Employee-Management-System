@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   async function getdata(){
-    const response = await axios.get('http://localhost:3000/users');
+    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/users`);
     setUser(response.data)
   }
 

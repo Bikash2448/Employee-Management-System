@@ -13,9 +13,6 @@ const Emp = () => {
 
   return (
     <div className='bg-[#1c1c1c] min-h-screen '>
-        {/* <Header changeUser={props.changeUser} data={props.dataa}/> */}
-        {/* <TaskListNumber data={props.dataa}/> */}
-        {/* <TaskList data={props.dataa}/> */}
         <Header/>
         <TaskListNumber triggerEffect={triggerEffect} triggerBothEffects={triggerBothEffects}/>
         <TaskList triggerEffect={triggerEffect} triggerBothEffects={triggerBothEffects}/>

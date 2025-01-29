@@ -28,7 +28,7 @@ const CreateTask = ({onTaskCreated}) => {
           setLoading(true); 
 
         try {
-            await axios.post("http://localhost:3000/tasks", {
+            await axios.post(`${import.meta.env.VITE_BACKEND_URL}/tasks`, {
                 userName: asignto, 
                 title: taskTitle,
                 description,
